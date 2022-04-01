@@ -1,0 +1,7 @@
+{
+  "name": "cuentas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
