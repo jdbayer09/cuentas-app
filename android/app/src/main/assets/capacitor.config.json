@@ -1,0 +1,6 @@
+{
+	"appId": "com.jdb.cuentas",
+	"appName": "Cuentas",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

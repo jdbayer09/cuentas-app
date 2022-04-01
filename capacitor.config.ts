@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'cuentas',
+  appId: 'com.jdb.cuentas',
+  appName: 'Cuentas',
   webDir: 'www',
   bundledWebRuntime: false
 };
