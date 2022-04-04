@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-card>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5" style="text-align: right;">
+                        <img src="../../../assets/account.png" width="64px" height="64px" />
+                    </ion-col>
+                    <ion-col>
+                        <h1 style="color: #ffffff;"><b>CUENTAS</b></h1>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label position="floating">
+                                Correo electrónico
+                            </ion-label>
+                            <ion-input type="email" formControlName="login"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label position="floating">
+                                Contraseña
+                            </ion-label>
+                            <ion-input type="password" formControlName="password"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row style="margin-top: 2%;">
+                    <ion-col>
+                        <ion-button shape="round" expand="block" color="success" type="submit" [disabled]="loginForm.invalid">
+                            Iniciar sesión
+                            <ion-icon name="log-in-outline"></ion-icon>
 
-<ion-content>
-
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                <ion-row style="margin-top: 2%; text-align: center;">
+                    <ion-col>
+                        <a style="color: gray;" routerLink="/password" type="button">¿Olvido su contraseña?</a>.
+                    </ion-col>
+                </ion-row>
+                <ion-row style="margin-top: 2%; text-align: center;">
+                    <ion-col>
+                        Si desea registrarse <a style="color: gray;" routerLink="/register" type="button">click aquí</a>.
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </form>
+    </ion-card>
 </ion-content>

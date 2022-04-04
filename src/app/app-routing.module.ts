@@ -17,10 +17,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
+    path: 'password',
+    loadChildren: () => import('./pages/password/password.module').then( m => m.PasswordPageModule)
+  },
+  {
     path: '',
     redirectTo: 'z',
     pathMatch: 'full'
   },
+
 ];
 
 @NgModule({
