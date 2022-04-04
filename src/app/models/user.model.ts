@@ -1,3 +1,4 @@
+import { Category } from './category.model';
 export interface User {
     id?: number;
     firstName?: string;
@@ -6,5 +7,5 @@ export interface User {
     email?: string;
     password?: string;
     createdAt?: Date | string;
-    categories?: any [];
+    categories?: Category [];
 }

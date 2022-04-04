@@ -2,3 +2,15 @@ ion-toolbar {
     --background: var(--ion-background-color, #fff);
     --border-color: var(--ion-background-color, #fff);
 }
+
+.text-center-jdb {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 90%;
+    height: 50%;
+    text-align: center;
+    margin: auto;
+}
