@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { environment } from 'src/environments/environment';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-zona',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZonaPage implements OnInit {
 
-  constructor() { }
+  userData: User;
+
+  constructor(private userSV: UserService) { 
+    this.loadData();
+  }
 
   ngOnInit() {
   }
 
+
+  private async loadData() {
+    this.userData = JSON.parse(localStorage.getItem(environment.storage_keys.user_data));
+
+    if (this.userData === null) {
+      this.userData = await this.userSV.getUserData();
+    }
+  }
 }

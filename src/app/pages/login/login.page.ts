@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { UtilService } from '../../services/util.service';
 import { AuthService } from '../../services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -36,11 +37,11 @@ export class LoginPage implements OnInit {
     setTimeout(() => {
       this.authSV.login({email: this.loginForm.value.login, password: this.loginForm.value.password}).then(resp => {
         if (resp) {
-          localStorage.setItem('token', resp.token);
-          this.navCtrl.navigateRoot('/z');
+          localStorage.setItem(environment.storage_keys.token, resp.token);
+          this.navCtrl.navigateRoot('/z', {animated: true});
           loading.dismiss();
         } else {
-          localStorage.removeItem('token');
+          localStorage.removeItem(environment.storage_keys.token);
           loading.dismiss();
         }
       }).catch(() => loading.dismiss());
