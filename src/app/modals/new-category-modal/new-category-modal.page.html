@@ -1,0 +1,165 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>{{update? 'Actualizar Categoria' : 'Nueva Categoria'}}</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button (click)="close()" color="danger">
+                Cerrar
+            </ion-button>
+            <ion-button (click)="save()" [disabled]="formCategory.invalid" color="success" *ngIf="!update">
+                Guardar
+            </ion-button>
+            <ion-button (click)="updateAction()" [disabled]="formCategory.invalid" color="success" *ngIf="update">
+                Guardar
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="animate__animated animate__fadeIn">
+
+    <form [formGroup]="formCategory">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">
+                            Nombre
+                        </ion-label>
+                        <ion-input type="text" formControlName="name"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">
+                            Descripción
+                        </ion-label>
+                        <ion-textarea formControlName="description" rows="5"></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-list>
+                        <ion-radio-group formControlName="icon">
+                            <ion-list-header>
+                                <ion-label>Icono</ion-label>
+                            </ion-list-header>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="card"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="card"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="cash"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="cash"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="airplane"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="airplane"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="game-controller"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="game-controller"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="home"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="home"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="paw"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="paw"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="pizza"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="pizza"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="receipt"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="receipt"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="shirt"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="shirt"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">
+                                    <ion-icon name="beer"></ion-icon>
+                                </ion-label>
+                                <ion-radio color="dark" slot="start" value="beer"></ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+                    </ion-list>
+                </ion-col>
+                <ion-col>
+                    <ion-list>
+                        <ion-radio-group formControlName="color">
+                            <ion-list-header>
+                                <ion-label>Color</ion-label>
+                            </ion-list-header>
+                            <ion-item>
+                                <ion-label color="danger">Rojo</ion-label>
+                                <ion-radio color="danger" slot="start" value="danger"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="warning">Amarillo</ion-label>
+                                <ion-radio color="warning" slot="start" value="warning"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="primary">Azul</ion-label>
+                                <ion-radio color="primary" slot="start" value="primary"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="secondary">Azul Claro</ion-label>
+                                <ion-radio color="secondary" slot="start" value="secondary"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="purple">Morado</ion-label>
+                                <ion-radio color="purple" slot="start" value="purple"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="success">Verde</ion-label>
+                                <ion-radio color="success" slot="start" value="success"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">Negro</ion-label>
+                                <ion-radio color="light" slot="start" value="light"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="medium">Gris</ion-label>
+                                <ion-radio color="medium" slot="start" value="medium"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="dark">Blanco</ion-label>
+                                <ion-radio color="dark" slot="start" value="dark"></ion-radio>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label color="orange">Naranja</ion-label>
+                                <ion-radio color="orange" slot="start" value="orange"></ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+
+</ion-content>

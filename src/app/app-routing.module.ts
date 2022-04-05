@@ -25,7 +25,6 @@ const routes: Routes = [
     redirectTo: 'z',
     pathMatch: 'full'
   },
-
 ];
 
 @NgModule({

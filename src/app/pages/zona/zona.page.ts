@@ -21,10 +21,6 @@ export class ZonaPage implements OnInit {
 
 
   private async loadData() {
-    this.userData = JSON.parse(localStorage.getItem(environment.storage_keys.user_data));
-
-    if (this.userData === null) {
-      this.userData = await this.userSV.getUserData();
-    }
+    this.userData = await this.userSV.getUserData();
   }
 }

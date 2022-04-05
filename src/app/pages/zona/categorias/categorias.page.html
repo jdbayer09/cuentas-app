@@ -2,7 +2,7 @@
     <ion-toolbar>
         <ion-title>Categorías</ion-title>
         <ion-buttons slot="primary">
-            <ion-button>
+            <ion-button (click)="newCategory()" [disabled]="loading">
                 <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -15,22 +15,24 @@
         <ion-refresher-content refreshingSpinner="bubbles">
         </ion-refresher-content>
     </ion-refresher>
-
-    <ion-virtual-scroll [items]="items" approxItemHeight="320px" *ngIf="items.length > 0 && !loading" class="animate__animated animate__fadeIn">
-        <ion-card *virtualItem="let item">
+    <ion-virtual-scroll [items]="items" approxItemHeight="150px" *ngIf="items.length > 0 && !loading" class="animate__animated animate__fadeIn">
+        <ion-card *virtualItem="let item" style="margin-bottom:6%;">
             <ion-card-header [color]="item.color">
                 <ion-card-title>
                     <ion-icon [name]="item.icon"></ion-icon>
-                    {{item.name}}
+                    {{item.name}} <small style="color: red;" *ngIf="item.disabled"><b>BLOQUEADO</b></small>
+
                 </ion-card-title>
             </ion-card-header>
             <ion-card-content style="margin-top: 3%; text-align: justify;" *ngIf="item.description">
-                {{item.description}}
+                {{(item.description ? item.description : '')}}
             </ion-card-content>
+            <ion-item>
+                <ion-button color="danger" fill="outline" slot="end" (click)="bloquearCategoria(item)">Bloquear</ion-button>
+                <ion-button color="warning" fill="outline" slot="end" (click)="editarCategoria(item)">Editar</ion-button>
+            </ion-item>
         </ion-card>
     </ion-virtual-scroll>
-
-
     <ion-grid class="text-center-jdb animate__animated animate__fadeIn" *ngIf="items.length === 0 && !loading">
         <ion-row>
             <ion-col>
@@ -41,7 +43,7 @@
         </ion-row>
     </ion-grid>
     <div *ngIf="items.length === 0 && loading" class="animate__animated animate__fadeIn">
-        <div class="ion-padding custom-skeleton" *ngFor="let x of [{}, {}, {}, {}, {}]">
+        <div class="ion-padding custom-skeleton" *ngFor="let x of [{}, {}, {}, {}, {}, {}, {}]">
             <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
             <ion-skeleton-text animated></ion-skeleton-text>
             <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>

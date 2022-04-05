@@ -44,11 +44,51 @@ export class HttpService {
     });
   }
 
+  delete(url: string): Promise<any>{
+    return new Promise(async (resolve, reject) => {
+      try {
+        const headers = await this.getHeaders();
+        this.http.delete(`${environment.server_url}${url}`, {headers}).subscribe((resp) => {
+          if(resp) {
+            resolve(resp);
+          } else {
+            reject(null);
+          }
+        }, err=>{
+          this.httpErrorManager(err);
+          reject(err);
+        });
+      } catch (ex) {
+        this.httpErrorManager(ex);
+      }
+    });
+  }
+
   post(url:string, data: any): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
         const headers = await this.getHeaders();
         this.http.post(`${environment.server_url}${url}`, data, {headers}).subscribe((resp) => {
+          if(resp) {
+            resolve(resp);
+          } else {
+            reject(null);
+          }
+        }, err=>{
+          this.httpErrorManager(err);
+          reject(err);
+        });
+      } catch (ex) {
+        this.httpErrorManager(ex);
+      }
+    });
+  }
+
+  put(url:string, data: any): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const headers = await this.getHeaders();
+        this.http.put(`${environment.server_url}${url}`, data, {headers}).subscribe((resp) => {
           if(resp) {
             resolve(resp);
           } else {

@@ -209,3 +209,21 @@ body.dark {
     --ion-tab-bar-background: #1f1f1f;
     --ion-card-background: #1e1e1e;
 }
+
+.ion-color-orange {
+    --ion-color-base: #db681b;
+    --ion-color-base-rgb: 219, 104, 27;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 0, 0, 0;
+    --ion-color-shade: #c15c18;
+    --ion-color-tint: #df7732;
+}
+
+.ion-color-purple {
+    --ion-color-base: #820AD1;
+    --ion-color-base-rgb: 130, 10, 209;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255, 255, 255;
+    --ion-color-shade: #7209b8;
+    --ion-color-tint: #8f23d6;
+}
