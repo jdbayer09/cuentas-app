@@ -9,6 +9,13 @@
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+
+
+    <ion-refresher slot="fixed" (ionRefresh)="refreshData($event)">
+        <ion-refresher-content refreshingSpinner="bubbles">
+        </ion-refresher-content>
+    </ion-refresher>
+
     <ion-virtual-scroll [items]="items" approxItemHeight="320px" *ngIf="items.length > 0 && !loading" class="animate__animated animate__fadeIn">
         <ion-card *virtualItem="let item">
             <ion-card-header [color]="item.color">
@@ -22,6 +29,7 @@
             </ion-card-content>
         </ion-card>
     </ion-virtual-scroll>
+
 
     <ion-grid class="text-center-jdb animate__animated animate__fadeIn" *ngIf="items.length === 0 && !loading">
         <ion-row>

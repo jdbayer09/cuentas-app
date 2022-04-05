@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
 import { Category } from '../../../models/category.model';
+import { CategoryService } from '../../../services/category.service';
 
 @Component({
   selector: 'app-categorias',
@@ -16,11 +17,21 @@ export class CategoriasPage implements OnInit {
 
   items: Category[] = [];
 
-  constructor() { }
+  constructor(private categorySV: CategoryService) { }
 
   ngOnInit() {
-    setTimeout(() => {
+    this.refreshData();
+  }
+
+
+  refreshData(event?: any) {
+    this.items = [];
+    this.loading = true;
+    setTimeout(async () => {
+      this.items = await this.categorySV.listCategories();
       this.loading = false;
+      if (event)
+        event.target.complete();
     }, 2500);
   }
 

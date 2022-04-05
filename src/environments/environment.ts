@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  server_url: 'http://192.168.1.112:8080/',
+  //server_url: 'http://192.168.1.112:8080/',
+  server_url: 'https://personal-acc-jdb.herokuapp.com/',
   storage_keys: {
     token: 'token',
     user_data: 'user_data'
